@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,7 @@ public class CharacterController {
 	@Autowired
 	public CharacterRepository characterRepository;
 	
+	@CrossOrigin
 	@GetMapping(value="/characters")
 	public ResponseEntity<List<com.matthewchiborak.dndcharacterserver.model.Character>> getAllCharacters() {		
 		List<com.matthewchiborak.dndcharacterserver.model.Character> allChars = characterRepository.findCharacterNamesOnly();
@@ -32,6 +34,7 @@ public class CharacterController {
 		return new ResponseEntity<>(allChars, HttpStatus.OK);
 	}
 	
+	@CrossOrigin
 	@GetMapping("/characters/{id}")
 	public ResponseEntity<com.matthewchiborak.dndcharacterserver.model.Character> getSpecificCharacter(@PathVariable("id") String id) {
 		Optional<com.matthewchiborak.dndcharacterserver.model.Character> charData = characterRepository.findById(id);
