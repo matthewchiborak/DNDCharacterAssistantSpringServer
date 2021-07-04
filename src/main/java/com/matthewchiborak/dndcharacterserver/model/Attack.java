@@ -7,18 +7,20 @@ public class Attack {
 	private String name;
 	private int id;
 	private String damageRoll;
+	private String referenceLink;
 	
 	public Attack() {
 		super();
 	}
 
-	public Attack(String attackRoll, int level, String name, int id, String damageRoll) {
+	public Attack(String attackRoll, int level, String name, int id, String damageRoll, String referenceLink) {
 		super();
 		this.attackRoll = attackRoll;
 		this.level = level;
 		this.name = name;
 		this.id = id;
 		this.damageRoll = damageRoll;
+		this.referenceLink = referenceLink;
 	}
 
 	public String getAttackRoll() {
@@ -61,5 +63,12 @@ public class Attack {
 		this.damageRoll = damageRoll;
 	}
 	
+	public String getReferenceLink() {
+		return referenceLink;
+	}
+
+	public void setReferenceLink(String referenceLink) {
+		this.referenceLink = referenceLink;
+	}
 	
 }

@@ -51,6 +51,7 @@ public class Character {
 	private List<Skill> skills;
 	private List<Attack> attacks;
 	private List<Counter> counters;
+	private List<Reference> references;
 	
 	public Character() {
 		super();
@@ -63,7 +64,7 @@ public class Character {
 			int currentSlots2, int currentSlots3, int currentSlots4, int currentSlots5, int currentSlots6,
 			int currentSlots7, int currentSlots8, int currentSlots9, int maxSlots1, int maxSlots2, int maxSlots3,
 			int maxSlots4, int maxSlots5, int maxSlots6, int maxSlots7, int maxSlots8, int maxSlots9,
-			List<Skill> skills, List<Attack> attacks, List<Counter> counters) {
+			List<Skill> skills, List<Attack> attacks, List<Counter> counters, List<Reference> references) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -107,6 +108,7 @@ public class Character {
 		this.skills = skills;
 		this.attacks = attacks;
 		this.counters = counters;
+		this.references = references;
 	}
 
 	public String getId() {
@@ -445,6 +447,12 @@ public class Character {
 		this.counters = counters;
 	}
 	
-	
+	public List<Reference> getReferences() {
+		return references;
+	}
+
+	public void setReferences(List<Reference> references) {
+		this.references = references;
+	}
 	
 }
