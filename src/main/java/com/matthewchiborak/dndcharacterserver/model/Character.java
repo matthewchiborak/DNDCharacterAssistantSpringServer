@@ -30,6 +30,7 @@ public class Character {
 	private int wisdomScore;
 	private int currentHitDie;
 	private int maxHitDie;
+	private int hitDieDice;
 	private int currentSlots1;
 	private int currentSlots2;
 	private int currentSlots3;
@@ -60,7 +61,7 @@ public class Character {
 	public Character(String id, String name, int speed, int ac, int proficiencyBonus, boolean strength,
 			boolean constitution, boolean charisma, boolean dexterity, boolean intelligence, boolean wisdom,
 			int currentHP, int maxHP, int strengthScore, int constitutionScore, int charismaScore, int dexterityScore,
-			int intelligenceScore, int wisdomScore, int currentHitDie, int maxHitDie, int currentSlots1,
+			int intelligenceScore, int wisdomScore, int currentHitDie, int maxHitDie, int hitDieDice, int currentSlots1,
 			int currentSlots2, int currentSlots3, int currentSlots4, int currentSlots5, int currentSlots6,
 			int currentSlots7, int currentSlots8, int currentSlots9, int maxSlots1, int maxSlots2, int maxSlots3,
 			int maxSlots4, int maxSlots5, int maxSlots6, int maxSlots7, int maxSlots8, int maxSlots9,
@@ -87,6 +88,7 @@ public class Character {
 		this.wisdomScore = wisdomScore;
 		this.currentHitDie = currentHitDie;
 		this.maxHitDie = maxHitDie;
+		this.hitDieDice = hitDieDice;
 		this.currentSlots1 = currentSlots1;
 		this.currentSlots2 = currentSlots2;
 		this.currentSlots3 = currentSlots3;
@@ -277,6 +279,14 @@ public class Character {
 
 	public void setMaxHitDie(int maxHitDie) {
 		this.maxHitDie = maxHitDie;
+	}
+	
+	public int getHitDieDice() {
+		return hitDieDice;
+	}
+
+	public void setHitDieDice(int hitDieDice) {
+		this.hitDieDice = hitDieDice;
 	}
 
 	public int getCurrentSlots1() {
