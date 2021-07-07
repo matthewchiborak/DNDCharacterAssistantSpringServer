@@ -1,0 +1,345 @@
+{
+    "name": "Duke Danger",
+    "speed": 30,
+    "ac": 13,
+    "proficiencyBonus": 3,
+    "strength": false,
+    "constitution": true,
+    "charisma": true,
+    "dexterity": false,
+    "intelligence": false,
+    "wisdom": false,
+    "currentHP": 31,
+    "maxHP": 31,
+    "strengthScore": 8,
+    "constitutionScore": 14,
+    "charismaScore": 18,
+    "dexterityScore": 17,
+    "intelligenceScore": 8,
+    "wisdomScore": 12,
+    "currentHitDie": 7,
+    "maxHitDie": 7,
+	"hitDieDice": 6,
+    "currentSlots1": 4,
+    "currentSlots2": 3,
+    "currentSlots3": 3,
+    "currentSlots4": 1,
+    "currentSlots5": 0,
+    "currentSlots6": 0,
+    "currentSlots7": 0,
+    "currentSlots8": 0,
+    "currentSlots9": 0,
+    "maxSlots1": 4,
+    "maxSlots2": 3,
+    "maxSlots3": 3,
+    "maxSlots4": 1,
+    "maxSlots5": 0,
+    "maxSlots6": 0,
+    "maxSlots7": 0,
+    "maxSlots8": 0,
+    "maxSlots9": 0,
+    "skills": [
+        {
+            "skill": "Dexterity",
+            "name": "Acrobatics (Dex)",
+            "id": 13,
+            "proficient": true
+        },
+		{
+            "skill": "Wisdom",
+            "name": "Animal Handling (Wis)",
+            "id": 14,
+            "proficient": false
+        },
+		{
+            "skill": "Intelligence",
+            "name": "Arcana (Int)",
+            "id": 11,
+            "proficient": false
+        },
+		{
+            "skill": "Strength",
+            "name": "Athletics (Str)",
+            "id": 18,
+            "proficient": false
+        },
+		{
+            "skill": "Charisma",
+            "name": "Deception (Cha)",
+            "id": 4,
+            "proficient": true
+        },
+		{
+            "skill": "Intelligence",
+            "name": "History (Int)",
+            "id": 16,
+            "proficient": false
+        },
+		{
+            "skill": "Wisdom",
+            "name": "Insight (Wis)",
+            "id": 12,
+            "proficient": false
+        },
+		{
+            "skill": "Charisma",
+            "name": "Intimidation (Cha)",
+            "id": 2,
+            "proficient": false
+        },
+		{
+            "skill": "Intelligence",
+            "name": "Investigation (Int)",
+            "id": 3,
+            "proficient": false
+        },
+		{
+            "skill": "Wisdom",
+            "name": "Medicine (Wis)",
+            "id": 15,
+            "proficient": false
+        },
+		{
+            "skill": "Intelligence",
+            "name": "Nature (Int)",
+            "id": 7,
+            "proficient": false
+        },
+		{
+            "skill": "Wisdom",
+            "name": "Perception (Wis)",
+            "id": 9,
+            "proficient": false
+        },
+		{
+            "skill": "Charisma",
+            "name": "Performance (Cha)",
+            "id": 10,
+            "proficient": true
+        },
+		{
+            "skill": "Charisma",
+            "name": "Persuasion (Cha)",
+            "id": 1,
+            "proficient": true
+        },
+		{
+            "skill": "Intelligence",
+            "name": "Religion (Int)",
+            "id": 6,
+            "proficient": false
+        },
+		{
+            "skill": "Dexterity",
+            "name": "Sleight of Hand (Dex)",
+            "id": 5,
+            "proficient": false
+        },
+		{
+            "skill": "Dexterity",
+            "name": "Stealth (Dex)",
+            "id": 17,
+            "proficient": false
+        },
+		{
+            "skill": "Wisdom",
+            "name": "Survival (Wis)",
+            "id": 8,
+            "proficient": false
+        }
+    ],
+    "attacks": [
+        {
+            "attackRoll": "/r 1d20+7",
+            "level": 0,
+            "name": "Fire Bolt",
+            "id": 1,
+            "damageRoll": "/r 2d10",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Fire%20Bolt#content"
+        },
+        {
+            "attackRoll": "/r 1d20+6",
+            "level": 0,
+            "name": "Dagger",
+            "id": 2,
+            "damageRoll": "/r 1d4+3",
+			"referenceLink": " "
+        },
+        {
+            "attackRoll": "/r 1d20+6",
+            "level": 0,
+            "name": "Dart",
+            "id": 3,
+            "damageRoll": "/r 1d4+3",
+			"referenceLink": " "
+        },
+        {
+            "attackRoll": " ",
+            "level": 0,
+            "name": "Insect Plague",
+            "id": 4,
+            "damageRoll": "/r 4d10",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Insect%20Plague#content"
+        },
+        {
+            "attackRoll": "/r 1d20+7",
+            "level": 1,
+            "name": "Choas Bolt",
+            "id": 5,
+            "damageRoll": "/r 2d8+1d6",
+			"referenceLink": "http://dnd5e.wikidot.com/spell:chaos-bolt"
+        },
+        {
+            "attackRoll": "/r 1d20+7",
+            "level": 2,
+            "name": "Choas Bolt",
+            "id": 6,
+            "damageRoll": "/r 2d8+2d6",
+			"referenceLink": "http://dnd5e.wikidot.com/spell:chaos-bolt"
+        },
+        {
+            "attackRoll": "/r 1d20+7",
+            "level": 3,
+            "name": "Choas Bolt",
+            "id": 7,
+            "damageRoll": "/r 2d8+3d6",
+			"referenceLink": "http://dnd5e.wikidot.com/spell:chaos-bolt"
+        },
+        {
+            "attackRoll": " ",
+            "level": 3,
+            "name": "Fireball",
+            "id": 8,
+            "damageRoll": "/r 8d6",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Fireball#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 4,
+            "name": "Dimension Door",
+            "id": 15,
+            "damageRoll": "/r 4d6",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Dimension%20Door#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 4,
+            "name": "Choas Bolt",
+            "id": 16,
+            "damageRoll": "/r 2d8+4d6",
+			"referenceLink": "http://dnd5e.wikidot.com/spell:chaos-bolt"
+        },
+        {
+            "attackRoll": " ",
+            "level": 4,
+            "name": "Fireball",
+            "id": 17,
+            "damageRoll": "/r 9d6",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Fireball#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 1,
+            "name": "Jump",
+            "id": 9,
+            "damageRoll": " ",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Jump#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 1,
+            "name": "Mage Armor",
+            "id": 10,
+            "damageRoll": " ",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Mage%20Armor#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 2,
+            "name": "Enlarge/Reduce",
+            "id": 12,
+            "damageRoll": " ",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Enlarge%20Reduce#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 2,
+            "name": "Levitate",
+            "id": 13,
+            "damageRoll": " ",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Levitate#content"
+        },
+        {
+            "attackRoll": " ",
+            "level": 3,
+            "name": "Haste",
+            "id": 14,
+            "damageRoll": " ",
+			"referenceLink": "https://roll20.net/compendium/dnd5e/Haste#content"
+        }
+    ],
+    "counters": [
+        {
+            "name": "Wild Magic",
+            "currentCount": 1,
+            "maxCount": 30,
+            "id": 1
+        },
+        {
+            "name": "Sorcery Points",
+            "currentCount": 7,
+            "maxCount": 7,
+            "id": 2
+        },
+        {
+            "name": "Bug Staff",
+            "currentCount": 10,
+            "maxCount": 10,
+            "id": 3
+        },
+        {
+            "name": "TempHP",
+            "currentCount": 0,
+            "maxCount": 99,
+            "id": 4
+        }
+    ],
+	"references": [
+		{
+			"name": "Sorcerer",
+			"link": "https://roll20.net/compendium/dnd5e/Sorcerer#content"
+		},
+		{
+			"name": "Prestidigitation",
+			"link": "https://roll20.net/compendium/dnd5e/Prestidigitation#content"
+		},
+		{
+			"name": "Mold Earth",
+			"link": "http://dnd5e.wikidot.com/spell:mold-earth"
+		},
+		{
+			"name": "Mage Hand",
+			"link": "https://roll20.net/compendium/dnd5e/Mage%20Hand#content"
+		},
+		{
+			"name": "Minor Illusion",
+			"link": "https://roll20.net/compendium/dnd5e/Minor%20Illusion#content"
+		},
+		{
+			"name": "Bug Staff",
+			"link": "https://roll20.net/compendium/dnd5e/Staff%20of%20Swarming%20Insects#content"
+		},
+		{
+			"name": "Wild Magic",
+			"link": "http://dnd5e.wikidot.com/sorcerer:wild-magic"
+		},
+		{
+			"name": "Distant Spell",
+			"link": "https://roll20.net/compendium/dnd5e/Sorcerer#toc_11"
+		},
+		{
+			"name": "Transmuted Spell",
+			"link": "https://www.wizardslaboratory.com/transmuted-spell"
+		}
+	]
+}
