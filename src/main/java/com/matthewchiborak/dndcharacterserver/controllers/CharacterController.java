@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matthewchiborak.dndcharacterserver.model.Character;
 import com.matthewchiborak.dndcharacterserver.repository.CharacterRepository;
 import com.matthewchiborak.dndcharacterserver.repository.UserRepository;
-
+import com.matthewchiborak.dndcharacterserver.security.JwtUtil;
 import com.matthewchiborak.dndcharacterserver.model.User;
 import com.matthewchiborak.dndcharacterserver.model.Login;
 
@@ -30,22 +31,44 @@ public class CharacterController {
 	@Autowired
 	public UserRepository userRepository;
 	
+	private JwtUtil jwt = new JwtUtil();
+	
+	@CrossOrigin
+	@PostMapping("user")
+	public User login(@RequestParam("username") String username, @RequestParam("password") String pwd) {
+		
+		String token = jwt.getJWTToken(username);
+		User user = new User();
+		user.setUsername(username);
+		user.setToken(token);		
+		return user;
+		
+	}
+	
 	@CrossOrigin
 	@PostMapping(value="/users/authenticate")
 	public ResponseEntity<User> authenticateUser(@RequestBody Login login) {
 		
-			Optional<User> userData = Optional.of(userRepository.findByUsername(login.getUsername()));
-			
-			if(userData.isPresent()) {
-				if(userData.get().getPassword().equals(login.getPassword())) {
-					return new ResponseEntity<>(userData.get(), HttpStatus.OK);
-				}else {
-					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-				}
-			}else {
-				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-			}
+		String token = jwt.getJWTToken(login.getUsername());
+		User user = new User();
+		user.setUsername(login.getUsername());
+		user.setToken(token);
+		return new ResponseEntity<>(user, HttpStatus.OK);
+		
+//			Optional<User> userData = Optional.of(userRepository.findByUsername(login.getUsername()));
+//			
+//			if(userData.isPresent()) {
+//				if(userData.get().getPassword().equals(login.getPassword())) {
+//					return new ResponseEntity<>(userData.get(), HttpStatus.OK);
+//				}else {
+//					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//				}
+//			}else {
+//				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//			}
 	}
+	
+	
 	
 	@CrossOrigin
 	@GetMapping(value="/characters")

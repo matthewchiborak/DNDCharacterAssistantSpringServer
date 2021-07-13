@@ -7,18 +7,18 @@ public class User {
 	private String id;
 	private String username;
 	private String password;
-	private String authdata;
+	private String token;
 	
 	public User() {
 		super();
 	}
 	
-	public User(String id, String username, String password, String authdata) {
+	public User(String id, String username, String password, String token) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
-		this.authdata = authdata;
+		this.token = token;
 	}
 
 	public String getId() {
@@ -45,13 +45,15 @@ public class User {
 		this.password = password;
 	}
 
-	public String getAuthdata() {
-		return authdata;
+	public String getToken() {
+		return token;
 	}
 
-	public void setAuthdata(String authdata) {
-		this.authdata = authdata;
+	public void setToken(String token) {
+		this.token = token;
 	}
+
+
 	
 	
 	
