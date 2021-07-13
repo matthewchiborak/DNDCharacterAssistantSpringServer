@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.matthewchiborak.dndcharacterserver.model.Character;
 import com.matthewchiborak.dndcharacterserver.repository.CharacterRepository;
+import com.matthewchiborak.dndcharacterserver.repository.UserRepository;
 
 import com.matthewchiborak.dndcharacterserver.model.User;
 import com.matthewchiborak.dndcharacterserver.model.Login;
@@ -26,19 +27,24 @@ public class CharacterController {
 
 	@Autowired
 	public CharacterRepository characterRepository;
+	@Autowired
+	public UserRepository userRepository;
 	
 	@CrossOrigin
 	@PostMapping(value="/users/authenticate")
 	public ResponseEntity<User> authenticateUser(@RequestBody Login login) {
 		
-			System.out.println("Got Login: " + login.getUsername() + " " + login.getPassword());
-
-			User dummyUser = new User(1, "Admin", "Password", "WhatGoesHere");
+			Optional<User> userData = Optional.of(userRepository.findByUsername(login.getUsername()));
 			
-			if(login.getUsername().equals("a") && login.getPassword().equals("a"))
-				return new ResponseEntity<>(dummyUser, HttpStatus.OK);
-			else
-				return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			if(userData.isPresent()) {
+				if(userData.get().getPassword().equals(login.getPassword())) {
+					return new ResponseEntity<>(userData.get(), HttpStatus.OK);
+				}else {
+					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+				}
+			}else {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
 	}
 	
 	@CrossOrigin

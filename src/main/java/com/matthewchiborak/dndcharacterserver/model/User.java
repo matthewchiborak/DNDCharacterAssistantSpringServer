@@ -1,7 +1,10 @@
 package com.matthewchiborak.dndcharacterserver.model;
 
+import org.springframework.data.annotation.Id;
+
 public class User {
-	private int id;
+	@Id
+	private String id;
 	private String username;
 	private String password;
 	private String authdata;
@@ -10,7 +13,7 @@ public class User {
 		super();
 	}
 	
-	public User(int id, String username, String password, String authdata) {
+	public User(String id, String username, String password, String authdata) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -18,11 +21,11 @@ public class User {
 		this.authdata = authdata;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
