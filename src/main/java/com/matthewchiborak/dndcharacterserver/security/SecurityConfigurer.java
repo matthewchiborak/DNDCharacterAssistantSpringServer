@@ -1,6 +1,7 @@
 package com.matthewchiborak.dndcharacterserver.security;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import javax.servlet.Filter;
 
@@ -14,6 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 @EnableWebSecurity
 @Configuration
@@ -27,16 +29,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.POST, "/user").permitAll()
 			.anyRequest().authenticated();
 	}
-	
-	  @Bean
-	  CorsConfigurationSource corsConfigurationSource() {
-	      CorsConfiguration configuration = new CorsConfiguration();
-	      configuration.setAllowedOrigins(Arrays.asList("https://example.com"));
-	      configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-	      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-	      source.registerCorsConfiguration("/**", configuration);
-	      return source;
-	  }
+
 }
 
 
