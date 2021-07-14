@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -132,6 +133,21 @@ public class CharacterController {
 		});
 		
 		return new ResponseEntity<>("{\"message\": \"" + newCharacter.getName() + " updated successfully\"}", HttpStatus.OK);
+	}
+	
+	@CrossOrigin
+	@DeleteMapping("/characters/{id}")
+	public ResponseEntity<String> deleteCharacter(@PathVariable("id") String id) {
+		
+		characterRepository.deleteById(id);
+		
+		Optional<com.matthewchiborak.dndcharacterserver.model.Character> charData = characterRepository.findById(id);
+		
+		if(!charData.isPresent()) {
+			return new ResponseEntity<>("{\"message\": \"Character Deleted successfully\"}", HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>("{\"message\": \"Character Deletion Failed\"}", HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	@CrossOrigin
