@@ -36,40 +36,25 @@ public class CharacterController {
 	
 	@CrossOrigin
 	@PostMapping("user")
-	public User login(@RequestParam("username") String username, @RequestParam("password") String pwd) {
+	public ResponseEntity<User> login(@RequestParam("username") String username, @RequestParam("password") String pwd) {
 		
-		String token = jwt.getJWTToken(username);
-		User user = new User();
-		user.setUsername(username);
-		user.setToken(token);		
-		return user;
+		User userFromDb = userRepository.findByUsername(username);
 		
+		if(userFromDb != null) {
+			if(userFromDb.getPassword().equals(pwd)) {
+				String token = jwt.getJWTToken(username);
+				User user = new User();
+				user.setUsername(username);
+				user.setToken(token);	
+				
+				return new ResponseEntity<>(user, HttpStatus.OK);
+			}else {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+		}else {
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+		}		
 	}
-	
-	@CrossOrigin
-	@PostMapping(value="/users/authenticate")
-	public ResponseEntity<User> authenticateUser(@RequestBody Login login) {
-		
-		String token = jwt.getJWTToken(login.getUsername());
-		User user = new User();
-		user.setUsername(login.getUsername());
-		user.setToken(token);
-		return new ResponseEntity<>(user, HttpStatus.OK);
-		
-//			Optional<User> userData = Optional.of(userRepository.findByUsername(login.getUsername()));
-//			
-//			if(userData.isPresent()) {
-//				if(userData.get().getPassword().equals(login.getPassword())) {
-//					return new ResponseEntity<>(userData.get(), HttpStatus.OK);
-//				}else {
-//					return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//				}
-//			}else {
-//				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//			}
-	}
-	
-	
 	
 	@CrossOrigin
 	@GetMapping(value="/characters")

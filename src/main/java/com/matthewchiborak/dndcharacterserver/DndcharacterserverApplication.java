@@ -20,16 +20,6 @@ public class DndcharacterserverApplication {
 		SpringApplication.run(DndcharacterserverApplication.class, args);
 	}
 	
-//	  @Bean
-//	  CorsConfigurationSource corsConfigurationSource() {
-//	      CorsConfiguration configuration = new CorsConfiguration();
-//	      configuration.setAllowedOrigins(Arrays.asList("https://example.com"));
-//	      configuration.setAllowedMethods(Arrays.asList("GET","POST"));
-//	      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//	      source.registerCorsConfiguration("/**", configuration);
-//	      return source;
-//	  }
-	  
 	  @Bean
 	  public CorsFilter corsFilter() {
 	      final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
