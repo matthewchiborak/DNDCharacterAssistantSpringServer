@@ -1,7 +1,10 @@
 package com.matthewchiborak.dndcharacterserver.security;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -12,8 +15,14 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JwtUtil {
 	
-	public String getJWTToken(String username) {
-		String secretKey = "mySecretKey";
+	public String getJWTToken(String username) throws FileNotFoundException {
+		
+		File myObj = new File("src\\main\\resources\\secrets\\PasswordKey.txt");
+	    Scanner myReader = new Scanner(myObj);
+	    
+		String secretKey = myReader.next();
+		myReader.close();
+		
 		List<GrantedAuthority> grantedAuthorities = AuthorityUtils
 				.commaSeparatedStringToAuthorityList("ROLE_USER");
 		

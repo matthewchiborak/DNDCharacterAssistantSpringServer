@@ -1,7 +1,10 @@
 package com.matthewchiborak.dndcharacterserver;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +29,11 @@ public class DndcharacterserverApplication {
 
 	      final CorsConfiguration config = new CorsConfiguration();
 	      config.setAllowCredentials(true);
-	      config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
+	      List<String> allowedOriginStrings = new ArrayList();
+	      allowedOriginStrings.add("http://localhost:4200");
+	      allowedOriginStrings.add("http://localhost:3001");
+	      config.setAllowedOrigins(allowedOriginStrings);
+	      //config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
 	      config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
 	      config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
