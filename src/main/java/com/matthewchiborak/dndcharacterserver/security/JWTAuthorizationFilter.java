@@ -1,7 +1,10 @@
 package com.matthewchiborak.dndcharacterserver.security;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import javax.servlet.FilterChain;
@@ -24,7 +27,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
 	private final String HEADER = "Authorization";
 	private final String PREFIX = "Bearer ";
-	private final String SECRET = "mySecretKey";
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -50,8 +52,19 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 	}
 	
 	private Claims validateToken(HttpServletRequest request) {
+		
+		String secretKey = " ";
+		File myObj = new File("src\\main\\resources\\PasswordKey.txt");
+	    try {
+			Scanner myReader = new Scanner(myObj);
+			secretKey = myReader.next();
+			myReader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 		String jwtToken = request.getHeader(HEADER).replace(PREFIX, "");
-		return Jwts.parser().setSigningKey(SECRET.getBytes()).parseClaimsJws(jwtToken).getBody();
+		return Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(jwtToken).getBody();
 	}
 
 	/**

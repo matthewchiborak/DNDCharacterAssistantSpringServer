@@ -17,7 +17,7 @@ public class JwtUtil {
 	
 	public String getJWTToken(String username) throws FileNotFoundException {
 		
-		File myObj = new File("src\\main\\resources\\secrets\\PasswordKey.txt");
+		File myObj = new File("src\\main\\resources\\PasswordKey.txt");
 	    Scanner myReader = new Scanner(myObj);
 	    
 		String secretKey = myReader.next();

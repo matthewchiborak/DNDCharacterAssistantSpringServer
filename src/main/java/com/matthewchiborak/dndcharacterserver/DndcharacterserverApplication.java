@@ -33,7 +33,6 @@ public class DndcharacterserverApplication {
 	      allowedOriginStrings.add("http://localhost:4200");
 	      allowedOriginStrings.add("http://localhost:3001");
 	      config.setAllowedOrigins(allowedOriginStrings);
-	      //config.setAllowedOrigins(Collections.singletonList("http://localhost:4200"));
 	      config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization"));
 	      config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
